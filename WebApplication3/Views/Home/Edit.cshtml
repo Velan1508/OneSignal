@@ -1,0 +1,67 @@
+﻿@model WebApplication3.Models.OneSignal
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update App</h2>
+<br />
+<br />
+<br />
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    if (Model.name != null)
+    {
+        <div class="jumbotron">
+            <table class="table">
+               
+                <tr>
+                    <td>Name</td>
+                    <td> @Html.TextBoxFor(model => model.name)</td>
+                </tr>
+               
+                <tr>
+                    <td>gcm_key</td>
+                    <td> @Html.TextBoxFor(model => model.gcm_key)</td>
+                </tr>
+                <tr>
+                    <td>chrome_key</td>
+                    <td> @Html.TextBoxFor(model => model.chrome_key)</td>
+                </tr>
+                <tr>
+                    <td>web_key</td>
+                    <td> @Html.TextBoxFor(model => model.chrome_web_key)</td>
+                </tr>
+                <tr>
+                    <td>web_origin</td>
+                    <td> @Html.TextBoxFor(model => model.chrome_web_origin)</td>
+                </tr>
+                <tr>
+                    <td>sender_id</td>
+                    <td> @Html.TextBoxFor(model => model.chrome_web_gcm_sender_id)</td>
+                </tr>
+                <tr>
+                    <td>notification_icon</td>
+                    <td> @Html.TextBoxFor(model => model.chrome_web_default_notification_icon)</td>
+                </tr>
+                <tr>
+                    <td>chrome_web_sub_domain</td>
+                    <td> @Html.TextBoxFor(model => model.chrome_web_sub_domain)</td>
+                </tr>
+               
+
+            </table>
+        </div>
+
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    }
+    <br />
+    <br />
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

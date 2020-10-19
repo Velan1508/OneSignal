@@ -1,0 +1,34 @@
+﻿@model WebApplication3.Models.OneSignal
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>App Details</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    if (Model.name != null)
+    {
+        <div class="jumbotron">
+            <table class="table">
+                <tr>
+                    <td>Id</td>
+                    <td> @Html.DisplayFor(model => model.id)</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td> @Html.DisplayFor(model => model.name)</td>
+                </tr>
+
+            </table>
+        </div>
+    }
+    <br />
+    <br />
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

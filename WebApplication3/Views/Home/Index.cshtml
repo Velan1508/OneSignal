@@ -1,0 +1,56 @@
+﻿ 
+@model List<WebApplication3.Models.OneSignal>
+
+@{
+    ViewBag.Title = "Home Page";
+
+}
+<h2>Apps</h2>
+<br /><br /><br />
+            <div>
+                @if (ViewBag.Role == "Admin")
+                {
+
+                    @Html.ActionLink("New App", "Create", "Home")
+                }
+                </div>
+<div class="jumbotron">
+    <table class="table">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            
+            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+
+                <td>
+                    @if (ViewBag.Role == "Admin")
+                    {
+
+                    @*@Html.ActionLink("Create", "Create")*@ 
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) 
+
+                    }
+                    @Html.ActionLink("Details", "Details", new { id = item.id })
+                </td>
+            </tr>
+
+        }
+
+    </table>
+</div>
